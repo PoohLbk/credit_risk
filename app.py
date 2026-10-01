@@ -54,7 +54,7 @@ def train_model():
 model, encoders = train_model()
 
 # 2. UI Layout
-st.title("💳 ระบบประเมินความเสี่ยงการเบี้ยวหนี้ (Credit Risk AI)")
+st.title("ระบบประเมินความเสี่ยงการเบี้ยวหนี้ (Credit Risk AI)")
 st.write(
     "กรอกข้อมูลผู้กู้ยืมเพื่อประเมินโอกาสการค้างชำระหนี้ด้วย Machine Learning"
 )
@@ -149,7 +149,7 @@ if submit_btn:
     default_prob = model.predict_proba(input_data)[0][1] * 100
 
     st.divider()
-    st.subheader("📊 ผลการประเมินความเสี่ยง")
+    st.subheader("ผลการประเมินความเสี่ยง")
 
     # Display Percentage
     st.metric(
@@ -162,10 +162,10 @@ if submit_btn:
 
     # Risk Level Categorization & Warning
     if default_prob >= 50:
-        st.error("🚨 **ความเสี่ยงสูงมาก (High Risk):** อนุมัติยาก / ควรปฏิเสธ")
+        st.error("**ความเสี่ยงสูงมาก (High Risk):** อนุมัติยาก / ควรปฏิเสธ")
     elif default_prob >= 25:
         st.warning(
-            "⚠️ **ความเสี่ยงปานกลาง (Medium Risk):** ควรขอหลักประกันหรือค้ำประกันเพิ่ม"
+            "**ความเสี่ยงปานกลาง (Medium Risk):** ควรขอหลักประกันหรือค้ำประกันเพิ่ม"
         )
     else:
-        st.success("✅ **ความเสี่ยงต่ำ (Low Risk):** ผ่านเกณฑ์เบื้องต้น")
+        st.success("**ความเสี่ยงต่ำ (Low Risk):** ผ่านเกณฑ์เบื้องต้น")
